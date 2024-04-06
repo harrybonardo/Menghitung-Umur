@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Umur</title>
+    <style>
+        /* Gaya visual halaman web */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Penghitung Umur</h1>
+    <label for="tanggalLahir">Masukkan Tanggal Lahir:</label>
+    <input type="date" id="tanggalLahir">
+    <button onclick="hitungUmur()">Hitung Umur</button>
+    <p id="result"></p>
+
+    <script>
+        function hitungUmur() {
+            const inputTanggal = document.getElementById("tanggalLahir").value;
+            const tanggalLahir = new Date(inputTanggal);
+            const hariIni = new Date();
+            const selisihWaktu = hariIni - tanggalLahir;
+            const umurTahun = Math.floor(selisihWaktu / (365.25 * 24 * 60 * 60 * 1000));
+
+            document.getElementById("result").textContent = `Umur Anda adalah ${umurTahun} tahun.`;
+        }
+    </script>
+</body>
+</html>
